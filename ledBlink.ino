@@ -1,19 +1,19 @@
 
-int ledPin = 24
-int ledPin2 = 25
 
-  void
-  setup() {
+int ledPins[] = { 24, 25, 26, 27 };
+
+void setup() {
   Serial.begin(9600);
-  pinMode(ledPin1, OUTPUT)
-  pinMode(ledPin2, OUTPUT)
-  
+  for (int i = 0; i < 4; i++) {
+    pinMode(ledPins[i], OUTPUT);
+  }
 }
 
 void loop() {
-  digitalWrite(ledPin1, HIGH);
-  digitalWrite(ledPin2, HIGH);
-  delay(500);
-  digitalWrite(ledPin1, LOW);
-  digitalWrite(ledPin2, LOW);
+  for (int i = 0; i < 4; i++) {
+    digitalWrite(ledPins[i], HIGH);
+    delay(500);
+    digitalWrite(ledPins[i], LOW);
+    delay(500);
+  }
 }
